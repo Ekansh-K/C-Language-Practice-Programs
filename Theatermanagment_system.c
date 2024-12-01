@@ -16,7 +16,7 @@ void SeatSelector() {
     } 
     else if (numseats == 0) {//Checking if the number of seats requested is 0
         printf("Please select at least one seat\n");
-        return NULL;
+        return;
     }
 
     for (int i = 0; i < numseats; i++) {
@@ -70,8 +70,9 @@ int main(){
             arr[i][j] = rand_prob(30, min, max);
         }
     }
-    printf("Welcome to the Theater Management System\n");
-    printf("Enter 1 for seat booking and 2 for seat allotment display: ");
+    printf("-----------Welcome to the Theater Management System-----------\n");
+    while(choice !=3){
+    printf("Enter 1 for seat booking , 2 for seat allotment display and 3 to exit: ");
     scanf("%d", &choice);
     if (choice == 1){
         SeatSelector();
@@ -79,8 +80,12 @@ int main(){
     else if (choice == 2){
         SeatAllotmentDisplay();
     } 
+    else if (choice == 3){
+        break;
+    }
     else{
         printf("Invalid choice\n");
     }
+}
     return 0;
 }
